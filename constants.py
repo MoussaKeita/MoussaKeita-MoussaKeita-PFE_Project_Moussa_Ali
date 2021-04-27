@@ -1,0 +1,6 @@
+consumer_key='ae8Sw90haKWeNr9UZr2a26jnz'
+consumer_secret= 'OPEjsoFucb4so4Jezgr9LebjbQM2wD5O16HyXSJj8Pyh4d59Dn'
+access_token= '1291562099806789632-3jvEW4ZV99npGxzPR7lZWABAlypVEk'
+access_token_secret= '3j0ECEvO4WqeM8cwKXuinwNyFgqBAqJzne3fFv1Eai1DS'
+
+num_of_tweets = int(50)
