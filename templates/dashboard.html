@@ -13,6 +13,7 @@
     <!-- Favicon icon -->
     <link rel="icon" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <title>Stock market Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='global.css') }}">
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='font-awesome.css') }}">
     <link href="{{ url_for('static', filename='owl.carousel.min.css') }}" rel="stylesheet" />
@@ -35,7 +36,7 @@
     /*-------------- Carousel Slider---------------------------*/
     .carousel-item{
         height: 100vh;
-        min-height: 300px;
+        min-height: 400px;
         background: no-repeat scroll center;
         -webkit-backdrop-size: cover ;
         background-size: cover;
@@ -44,7 +45,7 @@
         content: "";
         display: block;
         position: absolute;
-        top:0;
+        top:0 ;
         left: 0;
         bottom: 0;
         right: 0;
@@ -127,29 +128,52 @@
         font-size: 16px;
         padding: 16px 32px;
     }
+    #navbarNav {
+        float: right;
+    }
 </style>
 <!-- Main wrapper  -->
 <div id="main-wrapper">
     <!-- header header  -->
     <div class="header">
-        <nav class="navbar top-navbar navbar-expand-md navbar-light">
-            <!-- Logo -->
-            <div class="navbar-header">
-                <a href="javascript:void(0)" class="menuzord-brand"><img src="{{url_for('static', filename='test21.png')}}" />
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                     <a href="javascript:void(0)" class="menuzord-brand"><img src="{{url_for('static', filename='test21.png')}}" />
+                    </a>
+                    <a class="navbar-brand" href="#">Stock Market</a>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                </a>
-            </div>
-            <!-- End Logo -->
-            <div class="navbar-collapse">
-                <!-- toggle and nav items -->
-                <ul class="navbar-nav mr-auto mt-md-0">
-                    <!-- This is  -->
-                    <li class="nav-item"> <a class="nav-link toggle-nav hidden-md-up text-muted  " href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
-                    <li class="nav-item m-l-10"> <a class="nav-link sidebartoggle hidden-sm-down text-muted  " href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
-
-                </ul>
+                    </ul>
+                    <form class="d-flex">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="javascript:void(0)">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            {% if session.log %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">logout</a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="/register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">login</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </form>
+                </div>
             </div>
         </nav>
+
+    </div>
+
+
     </div>
     <!-- End header header -->
     <!-- Left Sidebar  -->
@@ -161,7 +185,7 @@
                 <ul id="sidebar-menu">
                     <li class="nav-devider"></li>
                     <br>
-                    <li class="nav-label"><a href="http://127.0.0.1:5000">DASHBOARD</a></li>
+                    <li class="nav-label"><a href="javascript:void(0)">DASHBOARD</a></li>
 
                     <li class="nav-label"><a href="societes">SOCIETIES</a></li>
 
@@ -335,6 +359,7 @@
     </footer>
     <!-- End Left Sidebar  -->
 </div>
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>

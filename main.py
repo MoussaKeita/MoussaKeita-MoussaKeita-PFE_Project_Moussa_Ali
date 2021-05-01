@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
+# ----------Imports-------------------------------------
+from flask import Flask, request,render_template,redirect, url_for,session,logging,flash
 from alpha_vantage.timeseries import TimeSeries
 import pandas as pd
 import numpy as np
@@ -20,18 +21,25 @@ from Tweet import Tweet
 import plotly.express as px
 import nltk
 import seaborn as sns
-from statsmodels.tsa.ar_model import AutoReg
+from flask_mysqldb import MySQL,MySQLdb
+import bcrypt
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker,scoped_session
+from passlib.hash import sha256_crypt
 nltk.download('punkt')
-
+#########################################
 # Ignore Warnings
 import warnings
 warnings.filterwarnings("ignore")
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
+########## Connection à la Base de données
+engine = create_engine('mysql+pymysql://root:@localhost/flaskDb')
+db = scoped_session(sessionmaker(bind=engine))
+
 #***************** FLASK *****************************
 app = Flask(__name__)
-
 #To control caching so as to save and retrieve plot figs on client side
 @app.after_request
 def add_header(response):
@@ -40,10 +48,73 @@ def add_header(response):
     response.headers['Expires'] = '0'
     return response
 
+###### page d'accueil #########################
+#@app.route('/')
+#def home():
+    #return render_template("test.html")
+
 @app.route('/')
-def index():
-    #return render_template('index.html')
+def home():
+    return render_template("home.html")
+
+############### Section Registration ##########################""
+@app.route('/register',methods=["GET","POST"])
+def register():
+    if request.method == "POST":
+        name = request.form.get('name')
+        username = request.form.get('username')
+        password = request.form.get('password')
+        confirm = request.form.get('confirm')
+        hash_password = sha256_crypt.encrypt(str(password))
+
+        if password == confirm:
+            db.execute("INSERT INTO users (name, username, password) VALUES(:name,:username,:password)",
+            {"name":name,"username":username,"password":hash_password})
+            db.commit()
+            flash("Registered successfully: You can login","success")
+            return redirect(url_for('login'))
+        else:
+            flash("password does not match","danger")
+            return render_template("register.html")
+
+    return render_template("register.html")
+
+############### Section login ##########################""
+@app.route('/login',methods=["GET","POST"])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('name')
+        password = request.form.get('password')
+
+        usernamedata = db.execute("SELECT username FROM users WHERE username=:username",{"username":username}).fetchone()
+        passwordata = db.execute("SELECT password FROM users WHERE username=:username",{"username":username}).fetchone()
+
+        if usernamedata is None:
+            flash("no user","danger")
+            return render_template("login.html")
+        else:
+            for password_data in passwordata:
+                if sha256_crypt.verify(password,password_data):
+                    session["log"]=True
+                    flash("you are now login","success")
+                    return redirect(url_for('dashboard'))
+                else:
+                    flash("incorrect password","danger")
+                    return render_template("login.html")
+
+    return render_template('login.html')
+
+############### Section Dashboard ##########################""
+@app.route('/dashboard')
+def dashboard():
     return render_template('dashboard.html')
+
+############### Section logout ##########################""
+@app.route("/logout")
+def logout():
+    session.clear()
+    flash("you are now logout","success")
+    return redirect(url_for('login'))
 
 @app.route('/predict')
 def predict():
@@ -595,4 +666,5 @@ def insertintotable():
                                forecast_set=forecast_set,
                                error_lr=round(error_lr,2),error_lstm=round(error_lstm,2),error_arima=round(error_arima,2))
 if __name__ == '__main__':
-   app.run()
+    app.secret_key="super secret key"
+    app.run(debug=True)
