@@ -62,14 +62,14 @@ def home():
 def register():
     if request.method == "POST":
         name = request.form.get('name')
-        username = request.form.get('username')
+        email = request.form.get('email')
         password = request.form.get('password')
         confirm = request.form.get('confirm')
         hash_password = sha256_crypt.encrypt(str(password))
 
         if password == confirm:
-            db.execute("INSERT INTO users (name, username, password) VALUES(:name,:username,:password)",
-            {"name":name,"username":username,"password":hash_password})
+            db.execute("INSERT INTO users (name, email, password) VALUES(:name,:email,:password)",
+            {"name":name,"email":email,"password":hash_password})
             db.commit()
             flash("Registered successfully: You can login","success")
             return redirect(url_for('login'))
@@ -83,11 +83,11 @@ def register():
 @app.route('/login',methods=["GET","POST"])
 def login():
     if request.method == 'POST':
-        username = request.form.get('name')
+        name = request.form.get('name')
         password = request.form.get('password')
 
-        usernamedata = db.execute("SELECT username FROM users WHERE username=:username",{"username":username}).fetchone()
-        passwordata = db.execute("SELECT password FROM users WHERE username=:username",{"username":username}).fetchone()
+        usernamedata = db.execute("SELECT name FROM users WHERE name=:name",{"name":name}).fetchone()
+        passwordata = db.execute("SELECT password FROM users WHERE name=:name",{"name":name}).fetchone()
 
         if usernamedata is None:
             flash("no user","danger")
@@ -113,7 +113,7 @@ def dashboard():
 @app.route("/logout")
 def logout():
     session.clear()
-    flash("you are now logout","success")
+    flash("Vous êtes deconnecté","success")
     return redirect(url_for('login'))
 
 @app.route('/predict')
