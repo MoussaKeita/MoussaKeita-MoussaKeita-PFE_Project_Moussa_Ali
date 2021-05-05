@@ -132,6 +132,15 @@ def test():
 def insertintotable():
     nm = request.form['nm']
 
+############### Section Detail Societe ##########################""
+@app.route('/microsoft')
+def microsoft():
+    return render_template('microsoft.html')
+
+@app.route('/apple')
+def apple():
+    return render_template('apple.html')
+
     #**************** FUNCTIONS TO FETCH DATA ***************************
     def get_historical(quote):
         end = datetime.now()
