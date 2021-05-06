@@ -141,6 +141,10 @@ def microsoft():
 def apple():
     return render_template('apple.html')
 
+@app.route('/amazone')
+def amazone():
+    return render_template('amazone.html')
+
     #**************** FUNCTIONS TO FETCH DATA ***************************
     def get_historical(quote):
         end = datetime.now()

@@ -18,21 +18,21 @@ var tableData = [{
         'symbol': 'AMZN',
         'stock_exchange': 'NASDAQ Stock Exchange',
         'country': 'USA',
-        'logo': `<img src="{{url_for('static', filename='stok.jpg')}}" width="50" height="50">`,
-        'details':`<button class="btn btn-primary"><a href="#" style="color: white">voir detail</a></button>`
+        'logo': `<img src="https://www.ekonomico.fr/wp-content/uploads/2014/06/logo-amazon-a.png" width="60" height="60">`,
+        'details':`<button class="btn btn-primary"><a href="amazone" style="color: white">voir detail</a></button>`
     },{
         'name': 'Alphabet Inc - Class C',
         'symbol': 'GOOG',
         'stock_exchange': 'NASDAQ Stock Exchange',
         'country': 'USA',
-        'logo': `<img src="{{url_for('static', filename='stok.jpg')}}" width="50" height="50">`,
+        'logo': `<img src="{{url_for('static', filename='stok.jpg')}}" width="60" height="60">`,
         'details':`<button class="btn btn-primary"><a href="#" style="color: white">voir detail</a></button>`
     },{
         'name': 'Facebook Inc - Class A',
         'symbol': 'FB',
         'stock_exchange': 'NASDAQ Stock Exchange',
         'country': 'USA',
-        'logo': `<img href="static/forex_icon2.png" class="images" width="50" height="50"/>`,
+        'logo': `<img href="static/forex_icon2.png" class="images" width="60" height="60"/>`,
         'details':`<button class="btn btn-primary"><a href="#" style="color: white">voir detail</a></button>`
     },
     {
