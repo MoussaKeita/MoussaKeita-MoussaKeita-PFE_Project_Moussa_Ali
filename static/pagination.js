@@ -25,14 +25,14 @@ var tableData = [{
         'symbol': 'GOOG',
         'stock_exchange': 'NASDAQ Stock Exchange',
         'country': 'USA',
-        'logo': `<img src="{{url_for('static', filename='stok.jpg')}}" width="60" height="60">`,
+        'logo': `<img src="https://page-online.de/app/uploads/2015/09/Kreation_Branche_Google_Logo_Meinung_092015.png" width="60" height="60">`,
         'details':`<button class="btn btn-primary"><a href="#" style="color: white">voir detail</a></button>`
     },{
         'name': 'Facebook Inc - Class A',
         'symbol': 'FB',
         'stock_exchange': 'NASDAQ Stock Exchange',
         'country': 'USA',
-        'logo': `<img href="static/forex_icon2.png" class="images" width="60" height="60"/>`,
+        'logo': `<img src="http://assets.stickpng.com/thumbs/584ac2d03ac3a570f94a666d.png" class="images" width="60" height="60"/>`,
         'details':`<button class="btn btn-primary"><a href="#" style="color: white">voir detail</a></button>`
     },
     {
