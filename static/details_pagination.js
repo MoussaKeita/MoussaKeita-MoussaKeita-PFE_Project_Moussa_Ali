@@ -11,7 +11,7 @@ var tableData = [{
         'symbol': 'AAPL',
         'stock_exchange': 'NASDAQ Stock Exchange',
         'country': 'USA',
-        'logo': `<img src="https://www.le24heures.fr/wp-content/uploads/2020/02/Logo_Apple.inc_.gif" width="60" height="60">`,
+        'logo': `<img src="https://img.favpng.com/4/21/11/apple-icon-image-format-logo-icon-png-favpng-36s2TC82JU4muMhxwBXGBcB63.jpg" width="60" height="60">`,
         'details':`<button class="btn btn-primary"><a href="apple" style="color: white">voir detail</a></button>`
     },{
         'name': 'Amazon.com Inc',
@@ -216,10 +216,7 @@ function buildTable() {
                   <tr>
                   <td>${myList[i].name}</td>
                   <td>${myList[i].symbol}</td>
-                  <td>${myList[i].stock_exchange}</td>
-                  <td>${myList[i].country}</td>
-                  <td>${myList[i].logo}</td>
-                  <td>${myList[i].details}</td></tr>
+                   </tr>
                   `
         table.append(row)
     }

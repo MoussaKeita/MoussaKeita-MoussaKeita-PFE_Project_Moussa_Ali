@@ -1,10 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo-2.png') }}">
+    <title>JKS</title>
+
+
+    <link href="{{ url_for('static', filename='owl.carousel.min.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='owl.theme.default.min.css') }}" rel="stylesheet" />
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ url_for('static', filename='bootstrap.min-RES.css') }}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='helper.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style-RES.css') }}" rel="stylesheet">
+    <!--du site-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
+    <!--[if lt IE 9]>
+    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
-<body>
-<h1>Detail Microsoft Page</h1>
+
+
+<body class="header-fix fix-sidebar">
+<!-- Main wrapper  -->
+<div id="main-wrapper">
+    <!-- header header  -->
+    <div class="header">
+        <nav class="navbar top-navbar navbar-expand-md navbar-dark bg-dark">
+
+
+            <!-- Logo -->
+            <div class="navbar-header navbar-dark bg-dark">
+                <a href="javascript:void(0)" class="menuzord-brand"><img src="{{url_for('static', filename='test21.png')}}" />
+                </a>
+            </div>
+            <!-- End Logo -->
+
+
+            <div class="navbar-collapse">
+                <!-- toggle and nav items -->
+                <ul class="navbar-nav mr-auto mt-md-0">
+                    <!-- This is  -->
+                    <li class="nav-item"> <a class="nav-link toggle-nav hidden-md-up text-muted  " href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                    <li class="nav-item m-l-10"> <a class="nav-link sidebartoggle hidden-sm-down text-muted  " href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- End header header -->
+    <!-- Left Sidebar  -->
+    <div class="left-sidebar">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+            <!-- Sidebar navigation-->
+            <nav class="sidebar-nav">
+                <ul id="sidebar-menu">
+                    <li class="nav-devider"></li>
+                    <br>
+                    <li class="nav-label"><a href="dashboard">DASHBOARD</a></li>
+
+                    <li class="nav-label"><a href="societes">SOCIETIES</a></li>
+
+                    <li class="nav-label"><a href="predict">STOCK PREDICTION</a></li>
+
+                </ul>
+            </nav>
+            <!-- End Sidebar navigation -->
+
+        </div>
+        <!-- End Sidebar scroll-->
+    </div>
+    <!-- End Left Sidebar  -->
+
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <div style="text-align:center;">
+                <div class="container ">
+                    <style>
+                        :root {
+                            --box-x-padding: 2rem;
+                            --box-y-padding: 2rem;
+                        }
+                        @media (min-width: 40em) {
+                            :root {
+                                --box-y-padding: 4rem;
+                            }
+                        }
+                        @media (min-width: 60em) {
+                            :root {
+                                --box-x-padding: 3rem;
+                                --box-y-padding: 6rem;
+                            }
+                        }
+                        @media (min-width: 40em) {
+                            section {
+                                display: grid;
+                                grid-template-rows: repeat(3, auto);
+                                grid-template-columns: 4fr 4fr 5fr;
+                                grid-template-areas: '. . title' 'img img content' 'img img .';
+                                max-width: 1000px;
+                                margin-right: auto;
+                                margin-left: auto;
+                            }
+                            section::after {
+                                content: '';
+                                grid-column: 2/-1;
+                                grid-row: 1/3;
+                                position: relative;
+                                z-index: -1;
+                                background: #fff;
+                                box-shadow: 0 0.2em 1em rgba(61,48,41,0.2);
+                            }
+                            h1 {
+                                grid-area: title;
+                                padding-top: var(--box-y-padding);
+                                padding-left: var(--box-x-padding);
+                            }
+                            .content {
+                                grid-area: content;
+                                padding-bottom: var(--box-y-padding);
+                                padding-left: var(--box-x-padding);
+                                padding-right: var(--box-x-padding);
+                            }
+                            .img {
+                                grid-area: img;
+                            }
+                        }
+                        @import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+                        html {
+                            font-family: Montserrat, sans-serif;
+                            font-size: 15px;
+                            background-color: #f5f5f5;
+                        }
+                        body {
+                            padding: 1em;
+                        }
+                        h1 {
+                            font-size: 4em;
+                            margin: 0 0 1rem;
+                            font-family: serif;
+                            position: relative;
+                        }
+                        h1::after {
+                            content: '';
+                            position: absolute;
+                            width: 6rem;
+                            background-color: #ccc;
+                            height: 2px;
+                            top: 0;
+                            left: 0;
+                        }
+                        @media (min-width: 40em) {
+                            h1::after {
+                                left: var(--box-x-padding);
+                                top: var(--box-y-padding);
+                            }
+                        }
+                        .content {
+                            color: #4d4d4d;
+                            margin-bottom: var(--box-y-padding);
+                        }
+                        @media (min-width: 40em) {
+                            .content {
+                                margin-bottom: 0;
+                            }
+                        }
+                        p {
+                            margin-top: 0;
+                            margin-bottom: var(--box-y-padding);
+                            line-height: 1.5;
+                        }
+                        .content a {
+                            text-decoration: none;
+                            border: 1px solid #b3b3b3;
+                            border-radius: 1em;
+                            padding: 1em 2em;
+                            text-transform: uppercase;
+                            font-size: 11px;
+                            font-weight: 700;
+                            letter-spacing: 0.05em;
+                            color: inherit;
+                            display: inline-block;
+                            background-color: #fff;
+                        }
+                        .img {
+                            position: relative;
+                        }
+                        .img a {
+                            position: absolute;
+                            left: 0;
+                            bottom: 0;
+                        }
+                        img {
+                            max-width: 100%;
+                            vertical-align: middle;
+                            box-shadow: 0 0.2em 1.2em rgba(61,48,41,0.1);
+                        }
+                        .attribution {
+                            position: absolute;
+                            bottom: 0;
+                            right: 0;
+                            background-color: #ea4c89;
+                            color: #fff;
+                            padding: 0.5em 1em;
+                        }
+
+
+                        details[open] summary ~ * {
+                            animation: open 0.3s ease-in-out;
+                        }
+
+                        @keyframes open {
+                            0% {
+                                opacity: 0;
+                            }
+                            100% {
+                                opacity: 1;
+                            }
+                        }
+                        details summary::-webkit-details-marker {
+                            display: none;
+                        }
+
+                        details summary {
+                            width: 100%;
+                            padding: 0.5rem 0;
+                            border-top: 1px solid black;
+                            position: relative;
+                            cursor: pointer;
+                            font-size: 1.25rem;
+                            font-weight: 300;
+                            list-style: none;
+                        }
+
+                        details summary:after {
+                            content: "+";
+                            color: black;
+                            position: absolute;
+                            font-size: 1.75rem;
+                            line-height: 0;
+                            margin-top: 0.75rem;
+                            right: 0;
+                            font-weight: 200;
+                            transform-origin: center;
+                            transition: 200ms linear;
+                        }
+                        details[open] summary:after {
+                            transform: rotate(45deg);
+                            font-size: 2rem;
+                        }
+                        details summary {
+                            outline: 0;
+                        }
+                        details p {
+                            font-size: 2rem;
+                            margin: 0 0 1rem;
+                            padding-top: 1rem;
+                            color: black;
+                        }
+
+
+                    </style>
+
+
+
+
+                    <section>
+                        <h1>Microsoft</h1>
+                        <div class="content">
+                            <p style="color: black">Microsoft Corporation est une multinationale informatique et micro-informatique américaine, fondée en 1975 par Bill Gates et Paul Allen. Microsoft fait partie des principales capitalisations boursières du NASDAQ8, aux côtés d'Apple et d'Amazon. En 2018, le chiffre d'affaires s’élevait à 110,36 milliards de dollars9. Elle est dirigée, depuis le 4 février 2014, par Satya Nadella qui succède à Steve Ballmer et Bill Gates en qualité de directeur général, En 2020 l'entreprise emploie 148 000 personnes dans 120 pays3.</p>
+                            <br><br>
+                            <details>
+                                <summary>Symbol</summary>
+                                <p>
+                                    MSFT
+                                </p>
+                            </details>
+
+                            <details>
+                                <summary>Phone</summary>
+                                <p>
+                                    (800) 865-9408
+                                </p>
+                            </details>
+                            <details>
+                                <summary>Website
+                                </summary>
+                                <p> www.microsoft.com</p>
+                            </details>
+                            <details>
+                                <summary>Country
+                                </summary>
+                                <p> United States </p>
+                            </details>
+
+                            <details>
+                                <summary>City
+                                </summary>
+                                <p>New York</p>
+                            </details>
+                            <details>
+                                <summary>Currency
+                                </summary>
+                                <p> USD </p>
+                            </details>
+                            <details>
+                                <summary>Sector Activity
+                                </summary>
+                                <p>Lorem ipsum dolor sit amet, eu alia suscipit mei. Reque iriure delectus vix id, ex sed forensibus suscipiantur. In eos exerci mollis apeirian, an qui latine alienum. Ad mea libris maluisset, consul assueverit sea ex. </p>
+                            </details>
+                            <details>
+                                <summary>Volume
+                                </summary>
+                                <p>Lorem ipsum dolor sit amet, eu alia suscipit mei. Reque iriure delectus vix id, ex sed forensibus suscipiantur. In eos exerci mollis apeirian, an qui latine alienum. Ad mea libris maluisset, consul assueverit sea ex. </p>
+                            </details>
+                            <details>
+                                <summary>Market Capital
+                                </summary>
+                                <p>Lorem ipsum dolor sit amet, eu alia suscipit mei. Reque iriure delectus vix id, ex sed forensibus suscipiantur. In eos exerci mollis apeirian, an qui latine alienum. Ad mea libris maluisset, consul assueverit sea ex. </p>
+                            </details>
+                            <details>
+                                <summary>Forward PE
+                                </summary>
+                                <p>Lorem ipsum dolor sit amet, eu alia suscipit mei. Reque iriure delectus vix id, ex sed forensibus suscipiantur. In eos exerci mollis apeirian, an qui latine alienum. Ad mea libris maluisset, consul assueverit sea ex. </p>
+                            </details>
+                            <details>
+                                <summary>Trailing PE
+                                </summary>
+                                <p>Lorem ipsum dolor sit amet, eu alia suscipit mei. Reque iriure delectus vix id, ex sed forensibus suscipiantur. In eos exerci mollis apeirian, an qui latine alienum. Ad mea libris maluisset, consul assueverit sea ex. </p>
+                            </details>
+                            <details>
+                                <summary>Payout Ratio
+                                </summary>
+                                <p>Lorem ipsum dolor sit amet, eu alia suscipit mei. Reque iriure delectus vix id, ex sed forensibus suscipiantur. In eos exerci mollis apeirian, an qui latine alienum. Ad mea libris maluisset, consul assueverit sea ex. </p>
+                            </details>
+                            <br><br>
+                            <a href="societes">Retour</a>
+                        </div>
+                        <div class="img"><img src="https://png.pngtree.com/element_our/md/20180627/md_5b334611860fa.jpg"width="200" height="200"/><span style="display:inline-block;padding:2px 3px;"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-1px;fill:white;" viewBox="0 0 32 32"></span></a></div>
+
+                    </section>
+
+                </div>
+            </div>
+            <div style="text-align:center;margin-left:29%; ">
+                <div class="container ">
+                    <div id="pagination-wrapper"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
 </body>
-</html>
+
