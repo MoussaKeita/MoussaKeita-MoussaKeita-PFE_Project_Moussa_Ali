@@ -124,14 +124,6 @@ def predict():
 def societes():
     return render_template('societes.html')
 
-@app.route('/test')
-def test():
-    return render_template('test.html')
-
-@app.route('/insertintotable',methods = ['POST'])
-def insertintotable():
-    nm = request.form['nm']
-
 ############### Section Detail Societe ##########################""
 @app.route('/microsoft')
 def microsoft():
@@ -144,6 +136,11 @@ def apple():
 @app.route('/amazone')
 def amazone():
     return render_template('amazone.html')
+
+@app.route('/insertintotable',methods = ['POST'])
+def insertintotable():
+    nm = request.form['nm']
+
 
     #**************** FUNCTIONS TO FETCH DATA ***************************
     def get_historical(quote):
@@ -680,4 +677,4 @@ def amazone():
                                error_lr=round(error_lr,2),error_lstm=round(error_lstm,2),error_arima=round(error_arima,2))
 if __name__ == '__main__':
     app.secret_key="super secret key"
-    app.run(debug=True)
+    app.run()
